@@ -3,6 +3,7 @@ language: android
 android:
   components:
     - platform-tools
+    - android-27
 
 scripts:
   - ./gradlew assemble
