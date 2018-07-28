@@ -15,7 +15,7 @@ android:
     - android-27
     - android-$ANDROID_EMU_API_LEVEL
     - extra-android-support
-    - sys-img-armeabi-v7a-addon-google_apis-google-
+    - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_EMU_API_LEVEL
   licenses:
     - android-sdk-license-.+
 
