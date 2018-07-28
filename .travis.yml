@@ -9,9 +9,10 @@ android:
   components:
     - tools
     - platform-tools
+    - build-tools-27.0.3
     - android-27
     - android-$ANDROID_EMU_API_LEVEL
-    - build-tools-27.0.3
+    - extra-android-support
     - sys-img-armeabi-v7a-addon-google_apis-google-
   licenses:
     - android-sdk-license-.+
