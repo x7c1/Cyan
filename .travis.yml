@@ -1,20 +1,26 @@
 language: android
 
+env:
+  global:
+  # https://stackoverflow.com/a/46622253
+  - ANDROID_EMU_API_LEVEL=22
+
 android:
   components:
     - tools
     - platform-tools
     - android-27
+    - android-$ANDROID_EMU_API_LEVEL
     - build-tools-27.0.3
-    - sys-img-armeabi-v7a-addon-google_apis-google-27
+    - sys-img-armeabi-v7a-addon-google_apis-google-
   licenses:
     - android-sdk-license-.+
 
-before_install:
-- yes | sdkmanager "platforms;android-27"
+#before_install:
+#- yes | sdkmanager "platforms;android-27"
 
 before_script:
-  - echo no | android create avd --force -n test -t android-27 --abi armeabi-v7a
+  - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi armeabi-v7a
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
