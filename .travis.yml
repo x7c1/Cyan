@@ -4,6 +4,7 @@ android:
   components:
     - platform-tools
     - android-27
-
+  licenses:
+    - 'android-sdk-license-.+'
 scripts:
   - ./gradlew assemble
