@@ -1,0 +1,2 @@
+include ':cyan-repository'
+include ':cyan-main', ':jobcan-client'
