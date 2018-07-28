@@ -2,13 +2,11 @@ language: android
 
 android:
   components:
+    - tools
     - platform-tools
     - android-27
   licenses:
     - android-sdk-license-.+
-
-install:
-  - echo yes | sdkmanager "platforms"
 
 scripts:
   - ./gradlew assemble
