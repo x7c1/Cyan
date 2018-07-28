@@ -5,8 +5,10 @@ android:
     - platform-tools
     - android-27
   licenses:
-    - android-sdk-preview-license-.+
     - android-sdk-license-.+
+
+install:
+  - echo yes | sdkmanager "platforms"
 
 scripts:
   - ./gradlew assemble
