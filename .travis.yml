@@ -4,10 +4,10 @@ sudo: false
 env:
   global:
     - ADB_INSTALL_TIMEOUT=8
-    # https://stackoverflow.com/a/48361724
     - ANDROID_ABI=armeabi-v7a
     - ANDROID_TAG=google_apis
     - EMULATOR_API_LEVEL=22
+
 android:
   components:
     - tools
@@ -16,7 +16,6 @@ android:
     - android-27
     - android-$EMULATOR_API_LEVEL
     - extra-android-support
-#    - sys-img-$ANDROID_ABI-$ANDROID_TAG-$EMULATOR_API_LEVEL
     - sys-img-$ANDROID_ABI-android-$EMULATOR_API_LEVEL
   licenses:
     - android-sdk-license-.+
@@ -32,5 +31,4 @@ before_script:
   - adb shell input keyevent 82 &
 
 scripts:
-  - android list targets
   - ./gradlew build
