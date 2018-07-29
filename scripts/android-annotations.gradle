@@ -1,0 +1,18 @@
+apply plugin: "kotlin-allopen"
+apply plugin: "kotlin-kapt"
+
+dependencies {
+    // https://github.com/androidannotations/androidannotations/wiki/Kotlin-support
+    def AAVersion = '4.4.0'
+    kapt "org.androidannotations:androidannotations:$AAVersion"
+    implementation "org.androidannotations:androidannotations-api:$AAVersion"
+}
+
+allOpen {
+    annotation("org.androidannotations.api.KotlinOpen")
+}
+
+kapt {
+    // https://stackoverflow.com/questions/44972264/how-to-use-androidannotation-sharedpref-with-kotlin
+    correctErrorTypes = true
+}
