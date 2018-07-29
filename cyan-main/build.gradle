@@ -17,9 +17,11 @@ buildscript {
 }
 android {
     compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
     defaultConfig {
         applicationId "x7c1.cyan"
-        minSdkVersion 22
+        minSdkVersion 24
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
