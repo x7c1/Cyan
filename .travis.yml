@@ -3,31 +3,31 @@ sudo: false
 
 env:
   global:
-#    - ADB_INSTALL_TIMEOUT=8
+    - ADB_INSTALL_TIMEOUT=8
     # https://stackoverflow.com/a/48361724
-#    - ANDROID_ABI=arm64-v8a
-#    - ANDROID_TAG=google_apis
-#    - EMULATOR_API_LEVEL=25
+    - ANDROID_ABI=arm64-v7a
+    - ANDROID_TAG=google_apis
+    - EMULATOR_API_LEVEL=21
 android:
   components:
     - tools
     - platform-tools
     - build-tools-27.0.3
     - android-27
-#    - android-EMULATOR_API_LEVEL
-#    - extra-android-support
-#    - sys-img-$ANDROID_ABI-$ANDROID_TAG-$EMULATOR_API_LEVEL
+    - android-EMULATOR_API_LEVEL
+    - extra-android-support
+    - sys-img-$ANDROID_ABI-$ANDROID_TAG-$EMULATOR_API_LEVEL
   licenses:
     - android-sdk-license-.+
 
 #before_install:
 #- yes | sdkmanager "platforms;android-27"
 
-#before_script:
-#  - echo no | android create avd --force -n test -t "android-"$EMULATOR_API_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
-#  - emulator -avd test -no-audio -no-window &
-#  - android-wait-for-emulator
-#  - adb shell input keyevent 82 &
+before_script:
+  - echo no | android create avd --force -n test -t "android-"$EMULATOR_API_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
+  - emulator -avd test -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
 
 scripts:
   - android list target
