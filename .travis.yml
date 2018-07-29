@@ -32,3 +32,4 @@ before_script:
 
 scripts:
   - ./gradlew build
+  - find ./ -name '*.apk'
