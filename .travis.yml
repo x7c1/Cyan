@@ -31,5 +31,5 @@ before_script:
   - adb shell input keyevent 82 &
 
 scripts:
-  - ./gradlew build
+  - ./gradlew assemble
   - find ./ -name '*.apk'
