@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+apply from: '../scripts/android-versions.gradle'
 apply from: '../scripts/android-annotations.gradle'
 apply from: '../scripts/kotlin-coroutines.gradle'
 
@@ -16,15 +17,10 @@ buildscript {
 }
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
-
     defaultConfig {
         applicationId "x7c1.cyan"
-        minSdkVersion 22
-        targetSdkVersion 27
         versionCode 1
-        versionName "1.0"
+        versionName "0.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
