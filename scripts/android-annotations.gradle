@@ -3,7 +3,7 @@ apply plugin: "kotlin-kapt"
 
 dependencies {
     // https://github.com/androidannotations/androidannotations/wiki/Kotlin-support
-    def AAVersion = '4.4.0'
+    def AAVersion = '4.6.0'
     kapt "org.androidannotations:androidannotations:$AAVersion"
     implementation "org.androidannotations:androidannotations-api:$AAVersion"
 }
