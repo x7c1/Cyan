@@ -1,7 +1,7 @@
 package x7c1.cyan.jobcan.actions.recorder
 
-import kotlinx.coroutines.experimental.DefaultDispatcher
-import kotlinx.coroutines.experimental.withContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import x7c1.cyan.jobcan.JobcanLogger
@@ -31,7 +31,7 @@ class RecorderPageLoader(
         )
     }
 
-    private suspend fun loadContent(sid: Sid) = withContext(DefaultDispatcher) {
+    private suspend fun loadContent(sid: Sid) = withContext(Dispatchers.Default) {
         val url = URL("https://jobcan.jp/m/work/accessrecord?_m=adit")
         logger.info("[RecorderPage] request started: $url")
 

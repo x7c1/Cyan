@@ -9,8 +9,8 @@ import kotlinx.android.synthetic.main.recorder_screen.jobcan_code
 import kotlinx.android.synthetic.main.recorder_screen.recorder_log
 import kotlinx.android.synthetic.main.recorder_screen.recorder_log_container
 import kotlinx.android.synthetic.main.recorder_screen.submit_button
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.withContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.androidannotations.annotations.Bean
 import org.androidannotations.annotations.EActivity
 import x7c1.cyan.R
@@ -43,7 +43,7 @@ private class JobcanContextImpl(
     override val containerView: View) : JobcanCodeProvider, LayoutContainer {
 
     override suspend fun loadCurrentCode(): String? {
-        return withContext(UI) {
+        return withContext(Dispatchers.Main) {
             jobcan_code.text.toString()
         }
     }
@@ -53,7 +53,7 @@ private class ConsoleImpl(
     override val containerView: View) : Console, LayoutContainer {
 
     override suspend fun info(message: String) {
-        withContext(UI) {
+        withContext(Dispatchers.Main) {
             // todo: use RecyclerView
             recorder_log.text = "${recorder_log.text}[${current()}] $message\n"
             recorder_log_container.post {

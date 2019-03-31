@@ -4,13 +4,14 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.makeText
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 interface OnClickSuspender : View.OnClickListener {
 
     override fun onClick(v: View?) {
-        launch(UI) {
+        GlobalScope.launch(Dispatchers.Main) {
             try {
                 onClickView(v)
             } catch (e: Exception) {

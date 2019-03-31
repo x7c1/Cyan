@@ -1,8 +1,7 @@
 package x7c1.cyan.jobcan.actions.start
 
-import kotlinx.coroutines.experimental.DefaultDispatcher
-import kotlinx.coroutines.experimental.async
-import kotlinx.coroutines.experimental.withContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import x7c1.cyan.jobcan.JobcanLogger
 import java.net.HttpCookie
 import java.net.HttpURLConnection
@@ -26,7 +25,7 @@ class StartPageLoader(
         return StartPage(Sid(sid))
     }
 
-    private suspend fun loadCookies(code: String) = withContext(DefaultDispatcher) {
+    private suspend fun loadCookies(code: String) = withContext(Dispatchers.Default) {
         val url = URL("https://ssl.jobcan.jp/m/?code=$code")
         logger.info("[StartPage] request started: $url")
 
