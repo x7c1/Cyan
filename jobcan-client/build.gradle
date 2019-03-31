@@ -29,7 +29,7 @@ dependencies {
     implementation group: 'com.android.support', name: 'support-annotations', version: '27.1.1'
 
     // https://jsoup.org/
-    implementation "org.jsoup:jsoup:1.7.3"
+    implementation "org.jsoup:jsoup:1.11.3"
 }
 
 compileKotlin {
